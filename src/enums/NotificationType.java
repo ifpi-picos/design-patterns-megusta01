@@ -1,5 +1,5 @@
 package enums;
 
-public enum TipoNotificacao {
+public enum NotificationType {
     POSTS, AOVIVO, RESPOSTAS, TODAS
 }

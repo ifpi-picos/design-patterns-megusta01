@@ -1,24 +1,21 @@
 
-
-import enums.TipoNotificacao;
-
+import enums.NotificationType;
 
 public class Follower implements Observer {
-    private TipoNotificacao tipoNotificacao;
-    private String nome;
+    private NotificationType notificationType;
+    private String name;
 
-    public TipoNotificacao getTipoNotificacao() {
-        return tipoNotificacao;
+    public NotificationType getNotificationType() {
+        return notificationType;
     }
 
-
-    public Follower(TipoNotificacao preferencia, String nome) {
-        this.tipoNotificacao = preferencia;
-        this.nome = nome;
+    public Follower(NotificationType preferencia, String name) {
+        this.notificationType = preferencia;
+        this.name = name;
     }
 
     @Override
     public void update(Post post) {
-            System.out.println(nome + " - " + post.getNotificacao().toString() + " - " + post.getConteudo());
+        System.out.println(name + ":\n - " + post.getNotification().toString() + "\n - " + post.getConteudo());
     }
 }

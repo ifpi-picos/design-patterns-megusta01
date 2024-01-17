@@ -1,23 +1,34 @@
-import enums.TipoNotificacao;
+import enums.NotificationType;
 
 public class App {
     public static void main(String[] args) {
         Page page = new Page();
 
-        Observer f1 = new Follower(TipoNotificacao.POSTS, "Gustavo");
-        Observer f2 = new Follower(TipoNotificacao.TODAS, "Katelyn");
+        Observer f1 = new Follower(NotificationType.POSTS, "Gustavo");
+        Observer f2 = new Follower(NotificationType.TODAS, "Katelyn");
+        Observer f3 = new Follower(NotificationType.AOVIVO, "Larissa");
+        Observer f4 = new Follower(NotificationType.RESPOSTAS, "Rafael");
+
 
         page.addFollower(f1);
         page.addFollower(f2);
+        page.addFollower(f3);
+        page.addFollower(f4);
         
-        Post p1 = new Post("Todas as Notificações", TipoNotificacao.TODAS);
-        Post p2 = new Post("Post", TipoNotificacao.POSTS);
-        Post p3 = new Post("Video Ao vivo", TipoNotificacao.AOVIVO);
-        Post p4 = new Post("Post", TipoNotificacao.TODAS);
+        Post p1 = new Post("POO fez uma nova publicação.", NotificationType.POSTS);
+        Post p2 = new Post("POO iniciou um video AoVivo.", NotificationType.AOVIVO);
+        Post p3 = new Post("POO fez uma nova publicação.", NotificationType.POSTS);
+        Post p4 = new Post("POO respondeu uma publicação. ", NotificationType.RESPOSTAS);
 
-        page.publish(p1);
-        page.publish(p2);
-        page.publish(p3);
-        page.publish(p4);
+        page.publishPost(p1);
+        page.publishPost(p2);
+        page.publishPost(p3);
+        page.publishPost(p4);
+
+        page.removeFollower(f2);
+
+        Post p5 = new Post("POO fez uma nova publicação.", NotificationType.POSTS);
+
+        page.publishPost(p5);
     }
 }

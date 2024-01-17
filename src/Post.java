@@ -1,19 +1,19 @@
-import enums.TipoNotificacao;
+import enums.NotificationType;
 
 public class Post {
     private String conteudo;
-    private TipoNotificacao notificacao;
+    private NotificationType notification;
 
-    public Post(String conteudo, TipoNotificacao notificacao) {
+    public Post(String conteudo, NotificationType notification) {
         this.conteudo = conteudo;
-        this.notificacao = notificacao;
+        this.notification = notification;
     }
 
     public String getConteudo() {
         return conteudo;
     }
 
-    public TipoNotificacao getNotificacao() {
-        return notificacao;
+    public NotificationType getNotification() {
+        return notification;
     }
 }

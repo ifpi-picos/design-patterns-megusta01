@@ -1,7 +1,7 @@
-import enums.TipoNotificacao;
+import enums.NotificationType;
 
 public interface Observer {
     public void update(Post post);
 
-    public TipoNotificacao getTipoNotificacao();
+    public NotificationType getNotificationType();
 }

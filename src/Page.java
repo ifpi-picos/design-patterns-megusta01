@@ -1,5 +1,7 @@
 import java.util.List;
 
+import enums.NotificationType;
+
 import java.util.ArrayList;
 
 public class Page {
@@ -16,13 +18,14 @@ public class Page {
 
     public void notifyFollowers(Post post) {
         for (Observer follower : followers) {
-            if(follower.getTipoNotificacao().equals(post.getNotificacao())){
+            if (follower.getNotificationType().equals(NotificationType.TODAS) 
+            || follower.getNotificationType().equals(post.getNotification())) {
                 follower.update(post);
             }
         }
     }
 
-    public void publish(Post post) {
+    public void publishPost(Post post) {
         posts.add(post);
         notifyFollowers(post);
     }
